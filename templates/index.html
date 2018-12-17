@@ -2,15 +2,34 @@
 
 {% block title %} Home Page {% endblock %}
 
-{% block head %}
- 
-    {{ super()}}
-
-{% endblock head %}
+<!-- Content block -->
 
 
-{% block body%}
+{% block content %}
+<div class="container">
+    <div class="header">IMDB Movies</div>
+    <hr>
+    <!-- Table -->
+    <table class="table table-hover">
+            <tr>
+                <th>Movies</th>
+                <th>Critical Reviews</th>
+                <th>Duration(minutes)</th>
+                <th>IMDB score</th>
+            </tr>
+            {% for movie in movie_names %}
+            <tr>
+                
+                <td scope="row">{{movie}}</td>
+                <td>{{ movies[movie]['critical_reviews'] }}</td>
+                <td>{{ movies[movie]['duration'] }}</td>
+                <td>{{ movies[movie]['imdb_score'] }}</td>
+               
+            </tr>
+            {% endfor %}
+    </table>
 
-<h1>Hello</h1>
-<h2>Welcome to my site</h2>
-{% endblock%}
+
+
+</div>
+{% endblock %}
